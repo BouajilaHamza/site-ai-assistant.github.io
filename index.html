@@ -2,135 +2,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- SEO & Social Meta -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Open Source RAG Chat Widget for Any Website. Add a private, multilingual AI assistant to your site with one line of code.">
+  <meta property="og:title" content="Site AI Assistant – Open Source RAG Chat Widget">
+  <meta property="og:description" content="Add a private, multilingual AI assistant to your site with one line of code.">
+  <meta property="og:image" content="chat-widget-preview.png">
+  <meta property="og:type" content="website">
   <title>Site AI Assistant – Open Source RAG Chat Widget</title>
-  <link rel="stylesheet" href="style.css">
-  <script>
-    // Fetch GitHub stars dynamically
-    document.addEventListener('DOMContentLoaded', async () => {
-      const res = await fetch('https://api.github.com/repos/BouajilaHamza/site-ai-assistant-integration');
-      if (res.ok) {
-        const data = await res.json();
-        const starCount = data.stargazers_count;
-        const starElem = document.getElementById('github-stars');
-        if (starElem) starElem.textContent = starCount;
-      }
-    });
-  </script>
+  <!-- Tailwind CSS CDN for utility classes -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom CSS variables for palette, typography, spacing -->
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <header>
-    <div class="container nav">
-      <div class="logo">Site AI Assistant</div>
-      <nav>
-        <a href="#features">Features</a>
-        <a href="#demo">Demo</a>
-        <a href="#integration">Integration</a>
-        <a href="https://github.com/BouajilaHamza/site-ai-assistant-integration" target="_blank" rel="noopener" class="github-link" style="display:flex;align-items:center;gap:6px;">
-          <!-- GitHub SVG Icon -->
-          <svg height="20" viewBox="0 0 16 16" width="20" fill="currentColor" aria-hidden="true" style="vertical-align:middle;">
-            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
-              0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
-              -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64
-              -.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.65 7.65
-              0 0 1 8 4.77c.68.003 1.36.092 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56
-              .82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2
-              0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-          </svg>
-          GitHub
-          <span id="github-stars" style="background:#e0e7ef;color:#444;border-radius:12px;padding:2px 8px;font-size:0.95em;margin-left:4px;">—</span>
-        </a>
-      </nav>
+<body class="bg-gradient-to-b from-slate-50 to-indigo-50 text-slate-800 font-sans">
+  <!-- Header & Mobile Nav -->
+  <header class="w-full bg-white/80 backdrop-blur fixed top-0 z-50 shadow">
+    <nav class="container mx-auto flex items-center justify-between py-4 px-4">
+      <a href="#" class="text-xl font-bold text-indigo-600">Site AI Assistant</a>
+      <button id="nav-toggle" class="md:hidden p-2 rounded focus:outline-none" aria-label="Open navigation">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <ul id="nav-menu" class="hidden md:flex gap-8 items-center font-medium">
+        <li><a href="#features" class="hover:text-indigo-600">Features</a></li>
+        <li><a href="#how" class="hover:text-indigo-600">How it works</a></li>
+        <li><a href="#contribute" class="hover:text-indigo-600">Contribute</a></li>
+        <li>
+          <a href="https://github.com/BouajilaHamza/site-ai-assistant-integration" target="_blank" rel="noopener" class="flex items-center gap-1 hover:text-indigo-600">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38..."/></svg>
+            GitHub
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Mobile menu (hidden by default) -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white/95 absolute w-full left-0 top-full shadow">
+      <ul class="flex flex-col gap-4 p-4">
+        <li><a href="#features" class="block py-2">Features</a></li>
+        <li><a href="#how" class="block py-2">How it works</a></li>
+        <li><a href="#contribute" class="block py-2">Contribute</a></li>
+        <li>
+          <a href="https://github.com/BouajilaHamza/site-ai-assistant-integration" target="_blank" rel="noopener" class="flex items-center gap-1 py-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54..."/></svg>
+            GitHub
+          </a>
+        </li>
+      </ul>
     </div>
   </header>
-  <main>
-    <section class="hero">
-      <div class="container hero-content">
-        <div class="hero-text">
-          <h1>Open Source RAG Chat Widget for Any Website</h1>
-          <p>Integrate a private, self-hosted Retrieval-Augmented Generation (RAG) AI assistant into your website with a single snippet. Secure, customizable, and multilingual.</p>
-          <div class="hero-actions">
-            <a href="#integration" class="cta-btn">Get Started</a>
-            <a href="https://github.com/BouajilaHamza/site-ai-assistant-integration" target="_blank" rel="noopener" class="github-btn">View on GitHub</a>
-          </div>
-          <div class="hero-github">
-            <svg height="20" viewBox="0 0 16 16" width="20" fill="currentColor" aria-hidden="true" style="vertical-align:middle;">
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
-                0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
-                -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64
-                -.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.65 7.65
-                0 0 1 8 4.77c.68.003 1.36.092 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56
-                .82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2
-                0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-            </svg>
-            <span>Star us on GitHub</span>
-            <span id="github-stars">—</span>
-          </div>
-        </div>
-        <div class="hero-img">
-          <img src="chat-widget-preview.png" alt="Chat Widget Preview" />
-        </div>
+
+  <main class="pt-24">
+    <!-- Hero Section -->
+    <section class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center gap-10">
+      <div class="flex-1">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-indigo-700">Open Source RAG Chat Widget for Any Website</h1>
+        <p class="text-lg md:text-xl mb-6 text-slate-700">Add a private, multilingual AI assistant to your site with one line of code. Secure, customizable, and easy to integrate.</p>
+        <a href="#how" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-indigo-700 transition">Get Started</a>
+      </div>
+      <div class="flex-1 flex justify-center">
+        <img src="chat-widget-preview.png" alt="AI Chat Widget Preview" class="rounded-xl shadow-lg w-full max-w-md">
       </div>
     </section>
-    <section id="features" class="features">
-      <div class="container">
-        <h2>Features</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <h3>🔒 Private & Self-Hosted</h3>
+
+    <!-- Features Section -->
+    <section id="features" class="bg-white py-16">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-10 text-indigo-700">Key Features</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-indigo-50 rounded-lg p-6 flex flex-col items-center text-center shadow hover:shadow-md transition">
+            <span class="text-4xl mb-3">🔒</span>
+            <h3 class="font-semibold text-lg mb-2">Private & Self-Hosted</h3>
             <p>All data stays on your infrastructure. No third-party SaaS or vendor lock-in.</p>
           </div>
-          <div class="feature-card">
-            <h3>🧠 RAG-Powered Answers</h3>
-            <p>Retrieval-Augmented Generation for accurate, context-aware responses from your website or docs.</p>
+          <div class="bg-indigo-50 rounded-lg p-6 flex flex-col items-center text-center shadow hover:shadow-md transition">
+            <span class="text-4xl mb-3">🧠</span>
+            <h3 class="font-semibold text-lg mb-2">RAG-Powered Answers</h3>
+            <p>Retrieval-Augmented Generation for accurate, context-aware responses from your docs.</p>
           </div>
-          <div class="feature-card">
-            <h3>🌍 Multilingual</h3>
-            <p>Supports Arabic, English, French, and more. Automatic language detection and prompt adaptation.</p>
-          </div>
-          <div class="feature-card">
-            <h3>💡 Easy Integration</h3>
+          <div class="bg-indigo-50 rounded-lg p-6 flex flex-col items-center text-center shadow hover:shadow-md transition">
+            <span class="text-4xl mb-3">💡</span>
+            <h3 class="font-semibold text-lg mb-2">Easy Integration</h3>
             <p>Embed with a single JS snippet. Works on any website, no code changes required.</p>
           </div>
-          <div class="feature-card">
-            <h3>📊 Evaluation & Metrics</h3>
-            <p>Built-in validation, retrieval, and LLM metrics. Track performance and improve your knowledge base.</p>
-          </div>
-          <div class="feature-card">
-            <h3>🛠️ Fully Customizable</h3>
-            <p>Open source, extensible, and easy to adapt to your needs.</p>
-          </div>
         </div>
       </div>
     </section>
-    <section id="demo" class="demo">
-      <div class="container">
-        <h2>Live Demo</h2>
-        <div class="demo-box">
-          <p><em>Try the chat widget below! (Demo coming soon)</em></p>
-          <!-- Optionally embed a real widget or a video/gif preview here -->
+
+    <!-- How it Works / Getting Started -->
+    <section id="how" class="py-16 bg-gradient-to-b from-indigo-50 to-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8 text-indigo-700">How it Works</h2>
+        <div class="max-w-2xl mx-auto bg-white rounded-lg shadow p-6">
+          <p class="mb-4 text-slate-700">Add the widget to your site with one line:</p>
+          <pre class="bg-slate-100 rounded p-4 overflow-x-auto relative"><code id="snippet">&lt;script src="https://your-backend-url/static/js/widget.js"&gt;&lt;/script&gt;</code>
+            <button id="copy-btn" class="absolute top-2 right-2 bg-indigo-600 text-white px-3 py-1 rounded text-sm hover:bg-indigo-700 transition">Copy</button>
+          </pre>
+          <ul class="list-disc pl-6 mt-4 text-slate-600">
+            <li>Replace <code>your-backend-url</code> with your server address.</li>
+            <li>Run the backend on your infrastructure for full privacy.</li>
+            <li>See <a href="https://github.com/BouajilaHamza/site-ai-assistant-integration#embedding-the-ai-assistant-widget" class="text-indigo-600 underline" target="_blank">full documentation</a> for advanced setup.</li>
+          </ul>
         </div>
       </div>
     </section>
-    <section id="integration" class="integration">
-      <div class="container">
-        <h2>Integration</h2>
-        <p>Embed the Mozn AI Assistant widget in your website with a single line:</p>
-        <pre><code>&lt;script src="http://127.0.0.1:8000/static/js/widget.js"&gt;&lt;/script&gt;</code></pre>
-        <ul class="integration-list">
-          <li>Replace <code>YOUR_BACKEND_URL</code> with your server address.</li>
-          <li>Run the backend on your infrastructure for full privacy.</li>
-          <li>See <a href="https://github.com/BouajilaHamza/site-ai-assistant-integration#embedding-the-ai-assistant-widget" target="_blank">full documentation</a> for advanced setup.</li>
-        </ul>
+
+    <!-- Contribute Section -->
+    <section id="contribute" class="py-16 bg-white">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4 text-indigo-700">Contribute</h2>
+        <p class="mb-6 text-slate-700">We welcome issues and pull requests! Help us improve by contributing on GitHub.</p>
+        <a href="https://github.com/BouajilaHamza/site-ai-assistant-integration/issues" target="_blank" class="inline-block bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-slate-900 transition">View Issues</a>
+        <a href="https://github.com/BouajilaHamza/site-ai-assistant-integration/pulls" target="_blank" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-indigo-700 transition ml-4">Open a PR</a>
       </div>
     </section>
   </main>
-  <footer>
-    <div class="container footer-content">
-      <span>© 2025 <a href="https://github.com/hamzabouajila" target="_blank">Hamza Bouajila</a> – <a href="https://github.com/BouajilaHamza/site-ai-assistant-integration" target="_blank">GitHub</a></span>
+
+  <!-- Footer -->
+  <footer class="bg-indigo-700 text-white py-6 mt-12">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>
+        <span>© 2025 Hamza Bouajila</span> &middot;
+        <a href="LICENSE" class="underline hover:text-indigo-200">MIT License</a>
+      </div>
+      <div class="flex gap-4">
+        <a href="https://github.com/BouajilaHamza/site-ai-assistant-integration" target="_blank" aria-label="GitHub" class="hover:text-indigo-200">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54..."/></svg>
+        </a>
+        <a href="https://twitter.com/hamzabouajila" target="_blank" aria-label="Twitter" class="hover:text-indigo-200">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557a9.93..."/></svg>
+        </a>
+        <a href="https://bouajila.dev" target="_blank" aria-label="Docs" class="hover:text-indigo-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 20h9"/></svg>
+        </a>
+      </div>
     </div>
   </footer>
-  <script src="main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
