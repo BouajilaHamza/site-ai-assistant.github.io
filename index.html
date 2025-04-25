@@ -4,21 +4,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mozn AI Assistant – Open Source RAG Chat Widget</title>
+  <title>Site AI Assistant – Open Source RAG Chat Widget</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>
+    // Fetch GitHub stars dynamically
+    document.addEventListener('DOMContentLoaded', async () => {
+      const res = await fetch('https://api.github.com/repos/BouajilaHamza/site-ai-assistant-integration');
+      if (res.ok) {
+        const data = await res.json();
+        const starCount = data.stargazers_count;
+        const starElem = document.getElementById('github-stars');
+        if (starElem) starElem.textContent = starCount;
+      }
+    });
+  </script>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <div class="logo">Mozn AI Assistant</div>
+      <div class="logo">Site AI Assistant</div>
       <nav>
         <a href="#features">Features</a>
         <a href="#demo">Demo</a>
         <a href="#integration">Integration</a>
-        <a href="https://github.com/hamzabouajila/mozn-sa-customer-support" target="_blank" rel="noopener" class="github-link">GitHub</a>
+        <a href="https://github.com/BouajilaHamza/site-ai-assistant-integration" target="_blank" rel="noopener" class="github-link" style="display:flex;align-items:center;gap:6px;">
+          <!-- GitHub SVG Icon -->
+          <svg height="20" viewBox="0 0 16 16" width="20" fill="currentColor" aria-hidden="true" style="vertical-align:middle;">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+              0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+              -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64
+              -.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.65 7.65
+              0 0 1 8 4.77c.68.003 1.36.092 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56
+              .82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2
+              0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          GitHub
+          <span id="github-stars" style="background:#e0e7ef;color:#444;border-radius:12px;padding:2px 8px;font-size:0.95em;margin-left:4px;">—</span>
+        </a>
       </nav>
     </div>
   </header>
@@ -28,8 +50,23 @@
         <div class="hero-text">
           <h1>Open Source RAG Chat Widget for Any Website</h1>
           <p>Integrate a private, self-hosted Retrieval-Augmented Generation (RAG) AI assistant into your website with a single snippet. Secure, customizable, and multilingual.</p>
-          <a href="#integration" class="cta-btn">Get Started</a>
-          <a href="https://github.com/hamzabouajila/mozn-sa-customer-support" target="_blank" rel="noopener" class="github-btn">View on GitHub</a>
+          <div class="hero-actions">
+            <a href="#integration" class="cta-btn">Get Started</a>
+            <a href="https://github.com/BouajilaHamza/site-ai-assistant-integration" target="_blank" rel="noopener" class="github-btn">View on GitHub</a>
+          </div>
+          <div class="hero-github">
+            <svg height="20" viewBox="0 0 16 16" width="20" fill="currentColor" aria-hidden="true" style="vertical-align:middle;">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+                0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+                -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64
+                -.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.65 7.65
+                0 0 1 8 4.77c.68.003 1.36.092 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56
+                .82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2
+                0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+            <span>Star us on GitHub</span>
+            <span id="github-stars">—</span>
+          </div>
         </div>
         <div class="hero-img">
           <img src="chat-widget-preview.png" alt="Chat Widget Preview" />
@@ -80,18 +117,18 @@
       <div class="container">
         <h2>Integration</h2>
         <p>Embed the Mozn AI Assistant widget in your website with a single line:</p>
-        <pre><code>&lt;script src="https://YOUR_BACKEND_URL/static/js/widget.js"&gt;&lt;/script&gt;</code></pre>
+        <pre><code>&lt;script src="http://127.0.0.1:8000/static/js/widget.js"&gt;&lt;/script&gt;</code></pre>
         <ul class="integration-list">
           <li>Replace <code>YOUR_BACKEND_URL</code> with your server address.</li>
           <li>Run the backend on your infrastructure for full privacy.</li>
-          <li>See <a href="https://github.com/hamzabouajila/mozn-sa-customer-support#embedding-the-ai-assistant-widget" target="_blank">full documentation</a> for advanced setup.</li>
+          <li>See <a href="https://github.com/BouajilaHamza/site-ai-assistant-integration#embedding-the-ai-assistant-widget" target="_blank">full documentation</a> for advanced setup.</li>
         </ul>
       </div>
     </section>
   </main>
   <footer>
     <div class="container footer-content">
-      <span>© 2025 <a href="https://github.com/hamzabouajila" target="_blank">Hamza Bouajila</a> – <a href="https://github.com/hamzabouajila/mozn-sa-customer-support" target="_blank">GitHub</a></span>
+      <span>© 2025 <a href="https://github.com/hamzabouajila" target="_blank">Hamza Bouajila</a> – <a href="https://github.com/BouajilaHamza/site-ai-assistant-integration" target="_blank">GitHub</a></span>
     </div>
   </footer>
   <script src="main.js"></script>
